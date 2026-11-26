@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>模型星图 · Model Atlas — AI 模型发布档案馆 1943–2026</title>
+<meta name="description" content="模型星图是一个 1943–2026 年的 AI 模型发布档案馆，收录语言、多模态、图像、视频、语音、代码、科学、3D 与世界模型共 620 余条代表性记录，可按领域、厂商、年份、开放程度筛选。">
+<meta name="theme-color" content="#f3efe6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d1b17'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23df4a2f'/%3E%3Cellipse cx='16' cy='16' rx='11' ry='4.5' fill='none' stroke='%23f3efe6' stroke-width='1.2' transform='rotate(-25 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='11' ry='4.5' fill='none' stroke='%23f3efe6' stroke-width='1.2' opacity='.6' transform='rotate(55 16 16)'/%3E%3C/svg%3E">
+<script>
+(function () {
+  try {
+    var prefs = JSON.parse(localStorage.getItem('model-atlas:prefs:v1') || '{}');
+    var pref = prefs && prefs.theme;
+    if (pref !== 'light' && pref !== 'dark' && pref !== 'auto') pref = 'auto';
+    var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var resolved = pref === 'auto' ? (dark ? 'dark' : 'light') : pref;
+    document.documentElement.dataset.theme = resolved;
+    document.documentElement.style.colorScheme = resolved;
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', resolved === 'dark' ? '#0c0d10' : '#f3efe6');
+  } catch (e) {}
+})();
+</script>
+<style>
+__CSS__
+</style>
+</head>
+<body>
+<a class="skip" href="#results">跳到发布档案</a>
+
+<header class="site-header">
+  <div class="masthead-top shell">
+    <a class="brand" href="#top" aria-label="模型星图首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="2.8" fill="currentColor"/>
+          <ellipse cx="20" cy="20" rx="16.2" ry="6.5" stroke="currentColor" stroke-width="1.3" transform="rotate(-26 20 20)"/>
+          <ellipse cx="20" cy="20" rx="16.2" ry="6.5" stroke="currentColor" stroke-width="1.3" opacity=".55" transform="rotate(54 20 20)"/>
+          <circle cx="33.4" cy="13.2" r="1.7" fill="var(--accent)"/>
+          <circle cx="8.2" cy="28.2" r="1.1" fill="currentColor" opacity=".65"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <strong>模型星图</strong>
+        <em>MODEL ATLAS</em>
+      </span>
+    </a>
+    <div class="masthead-actions">
+      <button id="favOnlyBtn" class="icon-btn" type="button" aria-pressed="false" aria-label="只看收藏">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2.8l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.6l6.5-.9z"/>
+        </svg>
+        <span class="btn-label">只看收藏</span>
+        <span id="favCount" class="count-pill">0</span>
+      </button>
+      <button id="themeBtn" class="icon-btn" type="button" aria-label="主题：自动，点击切换" title="主题：自动">
+        <span id="themeIcon" class="theme-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="8"/>
+            <path d="M12 4a8 8 0 0 1 0 16"/>
+          </svg>
+        </span>
+        <span id="themeLabel" class="btn-label theme-label">自动</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="hero shell">
+    <div class="hero-kicker">
+      <span>AI MODEL RELEASE ARCHIVE · 1943—2026</span>
+      <span>VOL. 01 / STATIC ARCHIVE</span>
+    </div>
+    <h1 class="hero-title">把每一次<span class="accent">智能跃迁</span><br>钉在时间轴上。</h1>
+    <p class="hero-sub">
+      从 <b>麦卡洛克-皮茨神经元</b> 到 <b>GPT-6.2 Astra</b>，从达特茅斯会议到可交互世界模型。
+      这里收录 1943–2026 年间 <b id="heroCount">621</b> 条代表性 AI 模型与里程碑，按领域、机构、年份与开放程度交叉编目。
+    </p>
+    <div class="hero-stats" aria-label="档案统计">
+      <div class="hero-stat"><b id="statModels">—</b><span>条发布记录</span></div>
+      <div class="hero-stat"><b id="statVendors">—</b><span>家机构 / 厂商</span></div>
+      <div class="hero-stat"><b id="statSpan">—</b><span>年份跨度</span></div>
+      <div class="hero-stat"><b id="statFavs">—</b><span>条私人收藏</span></div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="currentColor" opacity=".45">
+          <circle cx="170" cy="170" r="134" stroke-dasharray="2 7"/>
+          <circle cx="170" cy="170" r="104"/>
+          <circle cx="170" cy="170" r="72" stroke-dasharray="1 5"/>
+          <path d="M20 170h300M170 20v300" opacity=".22"/>
+        </g>
+        <g class="orbit-spin">
+          <ellipse cx="170" cy="170" rx="142" ry="52" stroke="currentColor" stroke-width="1.1" opacity=".65" transform="rotate(-24 170 170)"/>
+          <ellipse cx="170" cy="170" rx="142" ry="52" stroke="currentColor" stroke-width="1.1" opacity=".4" transform="rotate(56 170 170)"/>
+          <circle cx="292" cy="103" r="4.4" fill="var(--accent)"/>
+          <circle cx="60" cy="245" r="2.6" fill="currentColor"/>
+        </g>
+        <circle cx="170" cy="170" r="4" fill="var(--accent)"/>
+        <circle cx="170" cy="36" r="2" fill="currentColor" opacity=".7"/>
+        <circle cx="304" cy="170" r="2.5" fill="currentColor" opacity=".5"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main class="site-main" id="top">
+  <section class="control-deck shell" aria-label="搜索与筛选">
+    <div class="search-row">
+      <div class="search-box" role="search">
+        <label class="sr-only" for="search">搜索模型、机构或简介</label>
+        <span class="search-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="7.2"/>
+            <path d="M16.2 16.2L21 21"/>
+          </svg>
+        </span>
+        <input id="search" type="search" placeholder="搜索模型、机构、简介… 支持空格分词" autocomplete="off" spellcheck="false" aria-describedby="searchHint">
+        <kbd aria-hidden="true">/</kbd>
+        <button id="searchClear" class="search-clear" type="button" aria-label="清空搜索" hidden>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+      </div>
+      <button id="randomBtn" class="random-btn" type="button">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="4" width="16" height="16" rx="4"/>
+          <path d="M8.2 8.2h.01M15.8 8.2h.01M8.2 15.8h.01M15.8 15.8h.01M12 12h.01"/>
+        </svg>
+        随机漫游
+      </button>
+    </div>
+    <span id="searchHint" class="sr-only">支持多个关键词，用空格分隔；按斜杠键可快速聚焦搜索框。</span>
+
+    <div class="filter-block">
+      <div class="filter-head">
+        <span>01 / 领域</span>
+        <span>可多选 · 计数随条件更新</span>
+      </div>
+      <div id="domainChips" class="chip-wrap" role="group" aria-label="领域筛选"></div>
+
+      <div class="select-row">
+        <label class="field" for="opennessSel">
+          <span>开放程度</span>
+          <select id="opennessSel" class="select"></select>
+        </label>
+        <label class="field" for="regionSel">
+          <span>国家 / 地区</span>
+          <select id="regionSel" class="select"></select>
+        </label>
+        <label class="field" for="yearSel">
+          <span>发布年份</span>
+          <select id="yearSel" class="select"></select>
+        </label>
+        <label class="field" for="sortSel">
+          <span>排序</span>
+          <select id="sortSel" class="select"></select>
+        </label>
+      </div>
+
+      <div class="filter-head vendor-head">
+        <span>02 / 厂商与机构</span>
+        <span id="vendorHint">按当前条件计数</span>
+      </div>
+      <div id="vendorGrid" class="vendor-grid" role="group" aria-label="厂商筛选"></div>
+
+      <p class="scope-note">
+        <b>开放程度口径：</b>
+        <span class="scope-open">开源</span>＝许可宽松（Apache-2.0 / MIT 等），允许商用与再分发；
+        <span class="scope-weight">开放权重</span>＝权重可下载但附商用 / 非商业或使用条款（如 Llama Community License、Gemma Terms）；
+        <span class="scope-closed">闭源</span>＝仅通过 API / 产品访问，不提供权重；
+        <span class="scope-unknown">未注明</span>＝发布时未明确许可或档案尚未核实。
+        日期精度与核验状态在详情中标注。
+      </p>
+    </div>
+  </section>
+
+  <section class="chart-section shell" aria-labelledby="chartTitle">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">RELEASE PULSE</p>
+        <h2 id="chartTitle">年度发布趋势</h2>
+      </div>
+      <div class="chart-meta">
+        <span id="chartTotal">—</span>
+        <div class="chart-nav" role="group" aria-label="图表横向滚动">
+          <button id="chartPrev" type="button" aria-label="向左滚动年份" title="向左滚动">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button id="chartNext" type="button" aria-label="向右滚动年份" title="向右滚动">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <button id="clearYear" type="button" hidden>清除年份</button>
+      </div>
+    </div>
+    <div class="chart-wrap" id="chartWrap">
+      <div class="chart-scroll" id="chartScroll" tabindex="0" aria-label="年度发布趋势，可横向滚动">
+        <div class="chart" id="chart" role="group" aria-label="按年份的发布数量柱状图"></div>
+      </div>
+      <div id="chartTip" class="chart-tooltip" role="status" aria-live="polite"></div>
+    </div>
+    <p class="chart-hint">仅绘制有发布记录的年份 · 点击柱形快捷筛选该年 · 柱高按当前筛选（不含年份）统计 · 可左右拖动或使用箭头查看</p>
+  </section>
+
+  <section class="results shell" id="results" aria-labelledby="resultsTitle">
+    <div class="results-head">
+      <div>
+        <p class="eyebrow">THE ARCHIVE</p>
+        <h2 id="resultsTitle">发布档案 <span id="resultCount" aria-live="polite">—</span></h2>
+      </div>
+      <div id="viewSwitch" class="view-switch" role="group" aria-label="视图切换">
+        <button type="button" data-view="cards" class="is-active" aria-pressed="true">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>
+          </svg>
+          卡片
+        </button>
+        <button type="button" data-view="timeline" aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 4v16M6 7h5M6 12h8M6 17h11"/>
+          </svg>
+          时间线
+        </button>
+        <button type="button" data-view="org" aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 20V9h6v11M10 20V4h10v16M4 20h16"/>
+          </svg>
+          机构
+        </button>
+      </div>
+    </div>
+
+    <div id="activeFilters" class="active-filters" hidden></div>
+
+    <div id="emptyState" class="empty" hidden>
+      <span class="empty-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <circle cx="10.8" cy="10.8" r="6.8"/>
+          <path d="M16 16l5 5M8 10.8h5.6"/>
+        </svg>
+      </span>
+      <h3 id="emptyTitle">没有匹配的记录</h3>
+      <p id="emptyText">试试减少关键词、换一个年份，或清除部分筛选条件。</p>
+      <button id="emptyReset" type="button">清除全部筛选</button>
+    </div>
+
+    <div id="viewRoot"></div>
+  </section>
+</main>
+
+<footer class="footer site-footer">
+  <div class="shell">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>模型星图 · Model Atlas</h3>
+        <p>把模型、机构与时间钉在一起的静态档案。</p>
+        <p id="footerCount">—</p>
+      </div>
+      <div class="footer-meta">
+        <p><b>数据截至 2026-11-26；静态档案、非实时数据。</b> 收录 1943–2026 年间代表性模型与里程碑。发布日期优先取官方公告、论文或产品说明；公开资料无法精确到日时保留月 / 年，不做日级推测。</p>
+        <p style="margin-top:7px">标注「✓ 已核验」表示构建期已对照官方公告、论文或权威百科；「未核验」仅作编年参考。收录口径以独立公开发布为准：同一代模型的多个尺寸通常合并为一条，量化、微调与 API 快照不单列；主要厂商的公开版本与里程碑持续补档。开放程度按发布时公开许可归纳，后续可能变化。商标与模型标识归各自权利人所有，部分图标为简化绘制，仅用于识别。</p>
+        <div class="footer-links" aria-label="官方发布记录">
+          <a class="footer-link" href="https://openai.com/news/" target="_blank" rel="noopener noreferrer">OpenAI 发布记录 ↗</a>
+          <a class="footer-link" href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer">Anthropic 发布记录 ↗</a>
+          <a class="footer-link" href="https://blog.google/technology/ai/" target="_blank" rel="noopener noreferrer">Google AI 发布记录 ↗</a>
+          <a class="footer-link" href="https://api-docs.deepseek.com/news/" target="_blank" rel="noopener noreferrer">DeepSeek 发布记录 ↗</a>
+          <a class="footer-link" href="https://qwen.ai/blog" target="_blank" rel="noopener noreferrer">Qwen 发布记录 ↗</a>
+          <a class="footer-link" href="https://cursor.com/blog" target="_blank" rel="noopener noreferrer">Cursor 发布记录 ↗</a>
+          <a class="footer-link" href="https://www.tripo3d.ai/blog" target="_blank" rel="noopener noreferrer">Tripo 发布记录 ↗</a>
+          <a class="footer-link" href="https://elevenlabs.io/blog" target="_blank" rel="noopener noreferrer">ElevenLabs 发布记录 ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>STATIC ARCHIVE · NOT REAL-TIME · 1943—2026</span>
+      <span>单文件 HTML / CSS / 原生 JS · 无外部依赖 · 图标内联</span>
+    </div>
+  </div>
+</footer>
+
+<div id="modalRoot"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script>
+__ICONS__
+</script>
+<script>
+__META__
+</script>
+<script>
+__DATA__
+</script>
+<script>
+__APP__
+</script>
+</body>
+</html>

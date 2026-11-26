@@ -1,0 +1,22 @@
+const DATA_WORLD = [
+  { id:'world-models', name:'World Models', org:'science', region:['瑞士','美国'], date:'2018-03', domain:'world', openness:'oss', logo:'globe', verified:true,
+    desc:'Ha 与 Schmidhuber 用 VAE + RNN 在梦境中训练策略，提出「世界模型」的经典框架。' },
+  { id:'genie-1', name:'Genie', org:'google', date:'2024-02', domain:'world', openness:'closed', logo:'genie', verified:true,
+    desc:'从海量无标注视频学习可交互生成式环境，单张图像即可变成可玩世界。' },
+  { id:'pi0', name:'π0', org:'physical', date:'2024-10-31', domain:'world', openness:'open', logo:'pi', verified:true,
+    desc:'Physical Intelligence 的视觉-语言-动作基础模型，统一机器人多任务控制。' },
+  { id:'genie-2', name:'Genie 2', org:'google', date:'2024-12-04', domain:'world', openness:'closed', logo:'genie', verified:true,
+    desc:'从单张提示图生成可交互 3D 场景，支持移动、跳跃与物体交互。' },
+  { id:'vjepa-2', name:'V-JEPA 2', org:'meta', date:'2025-06-11', domain:'world', openness:'open', logo:'globe', verified:true,
+    desc:'Meta 视频联合嵌入预测模型，可在无标注视频上学习物理直觉并驱动机器人。' },
+  { id:'genie-3', name:'Genie 3', org:'google', date:'2025-08-05', domain:'world', openness:'closed', logo:'genie', verified:true,
+    desc:'实时生成可交互世界，支持长时程一致性与提示词驱动的环境变化。' },
+  { id:'marble', name:'Marble', org:'worldlabs', date:'2025-11-12', domain:'world', openness:'closed', logo:'marble', verified:true,
+    desc:'World Labs 的多模态世界模型，从文本、图像或视频生成可编辑的 3D 世界。' },
+  { id:'oasis-2', name:'Oasis 2', org:'decart', date:'2025-12', domain:'world', openness:'open', logo:'decart', verified:false,
+    desc:'Decart 的实时可交互世界模型，以低延迟生成可探索的开放环境。' },
+  { id:'hy-world-2', name:'HY-World 2.0', org:'tencent', date:'2026-04-15', domain:'world', openness:'oss', logo:'globe', verified:true,
+    desc:'腾讯混元开源多模态世界模型，可重建、生成并模拟可导航 3D 世界。' },
+  { id:'genie-4', name:'Genie 4', org:'google', date:'2026-10-27', domain:'world', openness:'closed', logo:'genie', verified:true,
+    desc:'DeepMind 新一代实时世界模型，加入原生音频与更强的长时程交互。' }
+];
